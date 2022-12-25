@@ -80,7 +80,7 @@ class VideoPlayer {
     // Set autoplay to false since most browsers won't autoplay a video unless it is muted
     _videoElement.setAttribute('autoplay', 'false');
 
-    if (await shouldUseHlsLibrary()) {
+    //if (await shouldUseHlsLibrary()) {
       try {
         _hls = Hls(
           HlsConfig(
@@ -126,7 +126,7 @@ class VideoPlayer {
       } catch (e) {
         throw NoScriptTagException();
       }
-    } else {
+    /*} else {
       _videoElement.src = uri.toString();
       _videoElement.addEventListener('durationchange', (_) {
         if (_videoElement.duration == 0) {
@@ -137,7 +137,7 @@ class VideoPlayer {
           _sendInitialized();
         }
       });
-    }
+    }*/
 
     _videoElement.onCanPlayThrough.listen((dynamic _) {
       setBuffering(false);
